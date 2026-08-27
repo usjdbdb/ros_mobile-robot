@@ -1,0 +1,12 @@
+<!-- <launch>
+	<node pkg="map_server" type="map_saver" name="map_saver1" args="-f /home/wust-1/wheeltec_robot/src/turn_on_wheeltec_robot/map/WHEELTEC" output="screen">	
+	</node>
+</launch> -->
+
+
+
+<!-- 地图保存 -->
+<launch>
+    <arg name="filename" value="$(find turn_on_wheeltec_robot)/map/WHEELTEC" />
+    <node name="map_save" pkg="map_server" type="map_saver" args="-f $(arg filename)" output="screen" />
+</launch>

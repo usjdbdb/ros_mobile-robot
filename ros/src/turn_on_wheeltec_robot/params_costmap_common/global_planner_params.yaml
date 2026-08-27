@@ -1,0 +1,7 @@
+GlobalPlanner:
+  use_dijkstra: true
+  # use_grid_path: true   # 栅格路径，从终点开始找上下或左右4个中最小的栅格直到起点
+ 
+GlobalPlannerYwz:
+  # use_grid_path: true
+  planner_select: 4

@@ -1,0 +1,37 @@
+<launch>
+    <arg name="camera_mode"  default="Astra_Pro" 
+    doc="opt: Astra_S, Astra_Pro, Astra_Dabai,Astra_Gemini,
+              Astra_S+RgbCam,Astra_Pro+RgbCam,Astra_Dabai+RgbCam,Astra_Gemini+RgbCam"/>
+
+    <arg name="if_usb_cam" default="false"/>
+
+    <group if="$(eval if_usb_cam and (camera_mode=='Astra_Pro' or 
+                                      camera_mode=='Astra_Dabai' or 
+                                      camera_mode=='Astra_Gemini' or 
+                                      camera_mode=='Astra_S+RgbCam' or
+                                      camera_mode=='Astra_Pro+RgbCam' or
+                                      camera_mode=='Astra_Dabai+RgbCam' or 
+                                      camera_mode=='Astra_Gemini+RgbCam'))" >
+        <node name="usb_cam" pkg="usb_cam" type="usb_cam_node" output="screen" >
+            <param if="$(eval camera_mode=='Astra_S+RgbCam' or 
+                              camera_mode=='Astra_Pro+RgbCam' or 
+                              camera_mode=='Astra_Dabai+RgbCam' or
+                              camera_mode=='Astra_Gemini+RgbCam')" 
+                              name="video_device" value="/dev/RgbCam" />
+            <param if="$(eval camera_mode=='Astra_Pro' or 
+                              camera_mode=='Astra_Dabai' or
+                              camera_mode=='Astra_Gemini')" 
+                              name="video_device" value="/dev/$(arg camera_mode)"/>
+            <param name="image_width" value="640" />
+            <param name="image_height" value="480" />
+            <param name="pixel_format" value="yuyv" />
+            <param name="camera_frame_id" value="usb_cam" />
+            <param name="io_method" value="mmap"/>
+            <remap from="/usb_cam/image_raw/compressed" to="/image_raw/compressed"/>
+        </node>
+    </group>
+
+    
+
+</launch>
+
