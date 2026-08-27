@@ -1,0 +1,14 @@
+# Keil build outputs and user-specific files
+OBJ/
+Listings/
+*.uvguix.*
+*.uvoptx.bak
+JLinkSettings.ini
+*.orig
+build.log
+.vscode/
+DebugConfig/
+RTE/
+__pycache__/
+*.pyc
+*.bak
