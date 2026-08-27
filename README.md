@@ -1,6 +1,6 @@
 # ROS 移动机器人（差速小车）
 
-基于 WHEELTEC 差速移动小车（STM32F407 + FreeRTOS）的 ROS 移动机器人项目。本仓库包含**机械结构模型**、**下位机控制器固件**和 **ROS 上位机代码**三部分。
+基于 （STM32F407 + FreeRTOS） 差速移动小车的 ROS 移动机器人项目。本仓库包含**机械结构模型**、**下位机控制器固件**和 **ROS 上位机代码**三部分。
 
 ## 仓库结构
 
@@ -64,7 +64,6 @@ source devel/setup.bash
 roslaunch turn_on_wheeltec_robot turn_on_wheeltec_robot.launch
 ```
 
-- ⚠️ 依赖说明：launch 文件会调用其他 ROS 包（navigation 导航栈、slam_karto、robot_pose_ekf、teb_local_planner、rrt_exploration、激光雷达驱动 rplidar_ros / ldlidar、相机驱动 realsense / astra、rtabmap 等），这些包**不在本仓库内**，需按 WHEELTEC 官方教程或各包官方仓库自行安装。
 
 ## 克隆仓库
 
@@ -73,10 +72,4 @@ git lfs install
 git clone https://github.com/usjdbdb/ros_mobile-robot.git
 ```
 
-## 许可说明
 
-| 目录 | 许可 |
-| --- | --- |
-| `controller/` | WHEELTEC 差速小车配套固件；其中 FreeRTOS（GPLv2 + 例外）、ST 标准外设库（MCD-ST Liberty）、CMSIS（ARM）等第三方库按其各自许可证分发 |
-| `ros/` | `turn_on_wheeltec_robot` 的 `package.xml` 中 license 未声明（TODO），如需公开发布请补充许可证 |
-| `solidworks/` | 模型文件版权归原作者所有 |
